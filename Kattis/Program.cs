@@ -12,7 +12,7 @@ namespace Kattis
             bool isRightFormat = true;
             if (text.Count() > 80)
             {
-               return "invalid input";
+                return "invalid input";
             }
             for (int i = 0; i <= words.Length - 1; i++)
             {
@@ -30,14 +30,14 @@ namespace Kattis
             {
                 for (int i = 0; i < words.Length - 1; i++)
                 {
-                    for(int j=i+1; j < words.Length - 1; j++)
+                    for (int j = i + 1; j < words.Length - 1; j++)
                     {
                         if (words[i] == words[j])
                         {
                             numberOfRepeatedWords++;
                         }
                     }
-                    
+
                 }
             }
             if (numberOfRepeatedWords == 0)
@@ -55,12 +55,15 @@ namespace Kattis
             Console.WriteLine("Please enter a number or 'ok' to end or enter your string: ");
             string input = "";
             string result = "";
-            while (input?.ToLower() != "ok")
+            while (true)
             {
                 input = Console.ReadLine();
+                if (input?.ToLower() == "ok")
+                    break;
                 result = IsRepeated(input);
                 Console.WriteLine(result);
             }
+
 
         }
     }
